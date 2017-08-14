@@ -12,6 +12,8 @@ print('Bob' in d)
 print(d.get('Thomas'))
 print(d.get('Thomas', -1))
 # 要删除一个key，用pop(key)方法，对应的value也会从dict中删除：
+d.pop('Bob')
+print(d)
 # dict内部存放的顺序和key放入的顺序是没有关系的
 # 和list比较，dict有以下几个特点：
 # 1、查找和插入的速度极快，不会随着key的增加而变慢；
@@ -22,6 +24,21 @@ print(d.get('Thomas', -1))
 # 正确使用dict非常重要，需要牢记的第一条就是dict的key必须是不可变对象
 # 在Python中，字符串、整数等都是不可变的，因此，可以放心地作为key。而list是可变的，就不能作为key
 
+# set与dict类似，也是一组key的组合，但是不存储value
+# 创建set的时候，需要提供一个list作为输入集合
+s = set([1, 2, 3])
+# 通过add（key）和remove（key）可以增减元素
+s.add(4)
+print(s)
+s.remove(4)
+print(s)
+# set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作：
+s1 = set([2, 4, 6, 8, 10])
+s2 = set([1, 2, 3, 4, 5])
+print(s1 & s2)
+print(s1 | s2)
 
-
-
+# 不可变对象
+a = 'abc'
+a.replace('a', 'A')
+print(a)
