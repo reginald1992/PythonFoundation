@@ -24,7 +24,7 @@ h = input('height:')
 height = float(h)
 w = input('weight:')
 weight = float(w)
-bmi = weight / (height ^ 2)
+bmi = weight / height / height
 if bmi > 32:
     print('严重肥胖')
 elif bmi > 28:
