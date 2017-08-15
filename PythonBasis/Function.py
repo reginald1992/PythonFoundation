@@ -66,6 +66,15 @@ print(r)
 
 
 def quadratic(a, b, c):
-    pass
+    s = float(b*b-4*a*c)
+    if s < 0:
+        print('该方程式无解')
+    else:
+        x1 = (math.sqrt(s)-b)/(2*a)
+        x2 = (math.sqrt(s)+b)/(2*a)
+        return x1, x2
+
+
+
 
 
