@@ -222,6 +222,8 @@ person('Adam', 20, gender='M', job='Engineer')
 # 其他都是可选项，利用关键字参数来定义这个函数就能满足注册的需求。
 extra = {'city': 'Beijing', 'job': 'Engineer'}
 person('Jake', 28, **extra)
+
+
 # **extra表示把extra这个dict的所有key-value用关键字参数传入到函数的**kw参数，kw将获得一个dict，
 # 注意kw获得的dict是extra的一份拷贝，对kw的改动不会影响到函数外的extra
 
@@ -236,3 +238,14 @@ def person(name, age, **kw):
         # 有job参数
         pass
     print('names:', name, 'age', age, 'other', kw)
+
+
+# 但是调用者仍可以传入不受限制的关键字参数
+person('Jack', 24, city='Beijing', addr='HaiDian', zipcode=123456)
+
+
+# 如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接受city和job作为关键字。定义方式如下：
+def person(name, age, *, city, job):
+    print(name, age, city, job)
+
+# 与关键字参数**kw不同，命名关键字参数需要一个特殊的分隔符*，*后面的参数被视为命名关键字参数
