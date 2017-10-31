@@ -244,6 +244,8 @@ def person(name, age, **kw):
 person('Jack', 24, city='Beijing', addr='HaiDian', zipcode=123456)
 
 
+# ---------------------------------------------------------------------------------------------------------------------
+# 命名关键字参数：
 # 如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接受city和job作为关键字。定义方式如下：
 def person(name, age, *, city, job):
     print(name, age, city, job)
