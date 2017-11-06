@@ -249,6 +249,8 @@ person('Jack', 24, city='Beijing', addr='HaiDian', zipcode=123456)
 # 如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接受city和job作为关键字。定义方式如下：
 def person(name, age, *, city, job):
     print(name, age, city, job)
+
+
 # 与关键字参数**kw不同，命名关键字参数需要一个特殊的分隔符*，*后面的参数被视为命名关键字参数
 person('Jake', 26, city='Beijing', job='Engineer')
 
@@ -256,6 +258,8 @@ person('Jake', 26, city='Beijing', job='Engineer')
 # 如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符*了：
 def person(name, age, *args, city, job):
     print(name, age, args, city, job)
+
+
 # 命名关键字参数必须传入参数名，这和位置参数不同。如果没有传入参数名的话，调用将报错
 person('David', 12, 'NewYork', 'Salesman')  # 由于调用时缺少参数名city和job，Python解释器把这4个参数均视为位置参数，但person()函数仅接受2个位置参数
 
