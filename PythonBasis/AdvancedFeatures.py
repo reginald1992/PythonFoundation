@@ -23,6 +23,8 @@ L2[:]  # 什么都不写，只写[:]就可以复制一个list
 (0, 1, 2, 3, 4, 5, 6, 7)[0: 3]  # tuple也是一种list，唯一区别是tuple不可变。tuple也可以用切片操作，操作结果仍是tuple：
 'QWWEERRTTYTYYUUUU'[: 5]  # 字符串'xxx'也可以看成是一种list，每个元素是一个字符。字符串也可以用切片操作，结果仍是字符串
 print('QWHFJSDFSJDFKSDJF'[::2])
+
+# 练习
 # 利用切片操作，实现一个trim()函数，去除字符串首尾的空格，注意不要调用str的strip()方法：
 
 
@@ -58,4 +60,44 @@ for key in d:
 
 # 使用for循环时，只要对象是可迭代的，for循环就能正常运行。如何判定对象是可迭代的？
 from collections import Iterable
-isinstance('abc', Iterable)
+print(isinstance('abc', Iterable))  # str是否可以迭代
+print(isinstance('[a,b,c]', Iterable))  # list是否可以迭代
+print(isinstance(123456, Iterable))  # 数字是否可以迭代
+
+# 如果要对list实现类似Java那样的下标循环怎么办？
+# Python内置的enumerate函数可以把一个list变成索引-元素对，这样就可以在for循环中同时迭代索引和元素本身：
+for i, value in enumerate(['A', 'B', 'C', 'D', 'E']):
+    print(i, value)
+
+# 在Python中同时引用两个变量
+for x, y in[(1, 2), ('A', 'B'), (25, 36)]:
+    print(x, y)
+
+# 练习
+# 使用迭代在一个list中找到最大值和最小值，并返回一个tuple
+
+
+def findMinAndMax(L):
+    if len(L) < 1:
+        return None, None
+    else:
+        min = max = L[0]
+        for element in L:
+            if element > max:
+                max = element
+            if element < min:
+                min = element
+        return min, max
+# 测试
+
+
+if findMinAndMax([]) != (None, None):
+    print('测试失败!')
+elif findMinAndMax([7]) != (7, 7):
+    print('测试失败!')
+elif findMinAndMax([7, 1]) != (1, 7):
+    print('测试失败!')
+elif findMinAndMax([7, 1, 3, 9, 5]) != (1, 9):
+    print('测试失败!')
+else:
+    print('测试成功!')
