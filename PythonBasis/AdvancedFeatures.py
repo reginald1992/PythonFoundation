@@ -1,5 +1,7 @@
-# TODO 在Python中，代码不是越多越好，而是越少越好。代码不是越复杂越好，而是越简单越好。
-# TODO 高级特性之一：切片（slice）
+"""
+在Python中，代码不是越多越好，而是越少越好。代码不是越复杂越好，而是越简单越好。
+高级特性之一：切片（slice）
+"""
 # 取一个list或tuple的部分元素是常见的操作，例如：
 L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 [L[0], L[1], L[2]]  # 最笨的办法
@@ -49,9 +51,10 @@ elif trim('    ') != '':
     print('测试失败!')
 else:
     print('测试成功!')
-
-# TODO 高级特性之二：迭代（iteration）
-# 如果给定一个list或tuple，可以通过for循环遍历这个list或tuple,在Python中迭代是通过for循环完成的，而很多的语言是通过下标完成的
+"""
+TODO 高级特性之二：迭代（iteration）
+如果给定一个list或tuple，可以通过for循环遍历这个list或tuple,在Python中迭代是通过for循环完成的，而很多的语言是通过下标完成的
+"""
 d = {'a': 1, 'b': 2, 'c': 3}
 for key in d:
     print(key)
@@ -99,9 +102,10 @@ elif find_min_max([7, 1, 3, 9, 5]) != (1, 9):
     print('测试失败!')
 else:
     print('测试成功!')
-
-# TODO 高级特性之三 列表生成器 List Comprehension
-# 生成list【1，2……，10】
+"""
+TODO 高级特性之三 列表生成器 List Comprehension
+生成list【1，2……，10】
+"""
 list(range(1, 11))
 # 生成1*1,2*2，……9*9
 print([x*x for x in range(1, 10)])
