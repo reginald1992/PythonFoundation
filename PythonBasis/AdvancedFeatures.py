@@ -1,5 +1,7 @@
-# TODO 在Python中，代码不是越多越好，而是越少越好。代码不是越复杂越好，而是越简单越好。
-# TODO 高级特性之一：切片（slice）
+"""
+在Python中，代码不是越多越好，而是越少越好。代码不是越复杂越好，而是越简单越好。
+高级特性之一：切片（slice）
+"""
 # 取一个list或tuple的部分元素是常见的操作，例如：
 L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 [L[0], L[1], L[2]]  # 最笨的办法
@@ -23,8 +25,10 @@ L2[:]  # 什么都不写，只写[:]就可以复制一个list
 'QWWEERRTTYTYYUUUU'[: 5]  # 字符串'xxx'也可以看成是一种list，每个元素是一个字符。字符串也可以用切片操作，结果仍是字符串
 print('QWHFJSDFSJDFKSDJF'[::2])
 
-# 练习
-# 利用切片操作，实现一个trim()函数，去除字符串首尾的空格，注意不要调用str的strip()方法：
+"""
+练习
+利用切片操作，实现一个trim()函数，去除字符串首尾的空格，注意不要调用str的strip()方法：
+"""
 
 
 def trim(s):
@@ -50,8 +54,10 @@ elif trim('    ') != '':
 else:
     print('测试成功!')
 
-# TODO 高级特性之二：迭代（iteration）
-# 如果给定一个list或tuple，可以通过for循环遍历这个list或tuple,在Python中迭代是通过for循环完成的，而很多的语言是通过下标完成的
+"""
+高级特性之二：迭代（iteration）
+如果给定一个list或tuple，可以通过for循环遍历这个list或tuple,在Python中迭代是通过for循环完成的，而很多的语言是通过下标完成的
+ """
 d = {'a': 1, 'b': 2, 'c': 3}
 for key in d:
     print(key)
@@ -71,8 +77,10 @@ for i, value in enumerate(['A', 'B', 'C', 'D', 'E']):
 for x, y in[(1, 2), ('A', 'B'), (25, 36)]:
     print(x, y)
 
-# 练习
-# 使用迭代在一个list中找到最大值和最小值，并返回一个tuple
+"""
+练习
+使用迭代在一个list中找到最大值和最小值，并返回一个tuple
+"""
 
 
 def find_min_max(l):
@@ -100,7 +108,9 @@ elif find_min_max([7, 1, 3, 9, 5]) != (1, 9):
 else:
     print('测试成功!')
 
-# TODO 高级特性之三 列表生成器 List Comprehension
+"""
+高级特性之三 列表生成器 List Comprehension
+"""
 # 生成list【1，2……，10】
 list(range(1, 11))
 # 生成1*1,2*2，……9*9
@@ -120,16 +130,18 @@ print(d, d_new)
 # 将一个list中的大写字母变成小写
 L = ['Hello', 'World', 'IBM', 'Apple']
 print([s.lower() for s in L])
-# 练习
-# 如果list中既包含字符串，又包含整数，由于非字符串类型没有lower()方法，所以列表生成式会报错：
-# 使用内建的isinstance函数可以判断一个变量是不是字符串：
-# >>> x = 'abc'
-# >>> y = 123
-# >>> isinstance(x, str)
-# True
-# >>> isinstance(y, str)
-# False
-# 请修改列表生成式，通过添加if语句保证列表生成式能正确地执行：
+"""
+练习
+如果list中既包含字符串，又包含整数，由于非字符串类型没有lower()方法，所以列表生成式会报错：
+使用内建的isinstance函数可以判断一个变量是不是字符串：
+>>> x = 'abc'
+>>> y = 123
+>>> isinstance(x, str)
+True
+>>> isinstance(y, str)
+False
+请修改列表生成式，通过添加if语句保证列表生成式能正确地执行：
+"""
 L1 = ['Hello', 'World', 18, 'Apple', None]
 L2 = [s.lower() for s in L1 if isinstance(s, str)]
 
