@@ -124,16 +124,18 @@ print(d, d_new)
 # 将一个list中的大写字母变成小写
 L = ['Hello', 'World', 'IBM', 'Apple']
 print([s.lower() for s in L])
-# 练习
-# 如果list中既包含字符串，又包含整数，由于非字符串类型没有lower()方法，所以列表生成式会报错：
-# 使用内建的isinstance函数可以判断一个变量是不是字符串：
-# >>> x = 'abc'
-# >>> y = 123
-# >>> isinstance(x, str)
-# True
-# >>> isinstance(y, str)
-# False
-# 请修改列表生成式，通过添加if语句保证列表生成式能正确地执行：
+"""
+练习
+如果list中既包含字符串，又包含整数，由于非字符串类型没有lower()方法，所以列表生成式会报错：
+使用内建的isinstance函数可以判断一个变量是不是字符串：
+>>> x = 'abc'
+>>> y = 123
+>>> isinstance(x, str)
+True
+>>> isinstance(y, str)
+False
+请修改列表生成式，通过添加if语句保证列表生成式能正确地执行：
+"""
 L1 = ['Hello', 'World', 18, 'Apple', None]
 L2 = [s.lower() for s in L1 if isinstance(s, str)]
 
@@ -143,3 +145,11 @@ if L2 == ['hello', 'world', 'apple']:
     print('测试通过!')
 else:
     print('测试失败!')
+"""
+高级特性之四：生成器 generator
+如果列表元素可以按照某种算法推算出来，那我们是否可以在循环的过程中不断推算出后续的元素呢？
+这样就不必创建完整的list，从而节省大量的空间。在Python中，这种一边循环一边计算的机制，称为生成器：generator。
+"""
+L = [x * x for x in range(10)]
+g = (x * x for x in range(10))
+# 创建L和g的区别仅在于最外层的[]和()，L是一个list，而g是一个generator。
