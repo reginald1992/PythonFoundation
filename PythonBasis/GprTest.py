@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Apr 12 09:22:32 2018
-采用高斯基函数作为线性回归模型，用sklearn.gaussian_process.GaussianProcessRegressor可以进行回归，并学习画3D图
+采用高斯基函数作为线性回归模型，用sklearn.gaussian_process.Gaussian Process Regressor 可以进行回归，并学习画3D图
 @author: Shulin Liu
 """
 
