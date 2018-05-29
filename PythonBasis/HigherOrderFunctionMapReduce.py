@@ -6,7 +6,7 @@ Created on Wed May 23 20:11:32 2018
 """
 
 '''
-Fucntional Proigramming
+Functional Programming
 函数是Python内建支持的一种封装，我们通过把大段代码拆成函数，通过一层一层的函数调用，
 就可以把复杂任务分解成简单的任务，这种分解可以称之为面向过程的程序设计。函数就是面向过程的程序设计的基本单元。
 而函数式编程（请注意多了一个“式”字）——Functional Programming，虽然也可以归结到面向过程的程序设计，但其思想更接近数学计算。
@@ -39,8 +39,11 @@ print(f(-10))
 函数式编程指的就是这种高度抽象的编程范式
 '''
 
+
 def add(x, y, f):
     return f(x) + f(y)
+
+
 print(add(-5, 6, abs))
 
 '''
