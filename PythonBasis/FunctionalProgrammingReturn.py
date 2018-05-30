@@ -54,6 +54,7 @@ def count():
     for i in range(1, 4):
         def f_temp():
             return i * i
+
         fs.append(f_temp)
     return fs
 
@@ -71,7 +72,9 @@ def count():
     def f(j):
         def g():
             return j * j
+
         return g
+
     fs = []
     for i in range(1, 4):
         fs.append(f(i))  # f(i)立刻执行，因此当前i的值被传进f(i)
@@ -80,3 +83,25 @@ def count():
 
 f4, f5, f6 = count()
 print(f4(), f5(), f6())
+'''
+练习--利用闭包返回一个计数器函数，每次调用它返回递增整数：
+'''
+
+
+def create_counter():
+    i = [0]
+
+    def counter():
+        i[0] = i[0] + 1
+        return i[0]
+
+    return counter
+
+
+counterA = create_counter()
+print(counterA(), counterA(), counterA(), counterA(), counterA())  # 1 2 3 4 5
+counterB = create_counter()
+if [counterB(), counterB(), counterB(), counterB()] == [1, 2, 3, 4]:
+    print('测试通过!')
+else:
+    print('测试失败!')
