@@ -22,9 +22,9 @@ Functional Programming
 Python对函数式编程提供部分支持。由于Python允许使用变量，因此，Python不是纯函数式编程语言。
 '''
 
-'''
-TODO 函数式编程之一：高阶函数 Higher-order function
-'''
+
+# TODO 函数式编程之一：高阶函数 Higher-order function
+
 
 print(abs)
 x = abs(-10)
