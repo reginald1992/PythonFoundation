@@ -53,66 +53,90 @@ reduce把一个函数作用在一个序列[x1, x2, x3, ...]上，这个函数必
 其效果就是：reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
 '''
 
+
 def f(x):
     return x * x
-r = map(f, [1, 2, 3, 4, 5, 6])
-list(r)
 
-#map()作为高阶函数，事实上把运算规则抽象化了
+
+r = map(f, [1, 2, 3, 4, 5, 6])
+
+list(r)
+# map()作为高阶函数，事实上把运算规则抽象化了
 list(map(str, [1, 2, 3, 4, 5, 6]))
 
-#使用reduce（）可以一行代码解决累加问题
+# 使用reduce（）可以一行代码解决累加问题
 from functools import reduce
+
+
 def add(x, y):
     return x + y
+
+
 print(reduce(add, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
-#把序列[1, 3, 5, 7, 9]转化成13579
+
+# 把序列[1, 3, 5, 7, 9]转化成13579
 def fn(x, y):
     return x * 10 + y
+
+
 a = reduce(fn, [1, 3, 5, 7, 9])
 
-#如果考虑到字符串str也是一个序列，对上面的例子稍加改动，配合map()，就可以写出把str转换为int的函数：
+
+# 如果考虑到字符串str也是一个序列，对上面的例子稍加改动，配合map()，就可以写出把str转换为int的函数：
 def char2num(s):
-    digits = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9} 
+    digits = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
     return digits[s]
+
+
 b = reduce(fn, map(char2num, '123456789'))
 print(b)
 
-#编写一个str2int的函数
-DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9} 
+# 编写一个str2int的函数
+DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
+
+
 def char2num(s):
     return DIGITS[s]
+
+
 def str2int(s):
     return reduce(fn, map(char2num), s)
 
-#练习
-#利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字。
-#输入：['adam', 'LISA', 'barT']，输出：['Adam', 'Lisa', 'Bart']：
-def normalize(name):   
-    return name[0].upper() + name[1: ].lower()
+
+# 练习
+# 利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字。
+# 输入：['adam', 'LISA', 'barT']，输出：['Adam', 'Lisa', 'Bart']：
+def normalize(name):
+    return name[0].upper() + name[1:].lower()
+
 
 L1 = ['adam', 'LISA', 'barT']
 L2 = list(map(normalize, L1))
 print(L2)
 
-#请编写一个prod()函数，可以接受一个list并利用reduce()求积：
+
+# 请编写一个prod()函数，可以接受一个list并利用reduce()求积：
 def prod(L):
     return reduce(lambda x, y: x * y, L)
+
+
 print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
 if prod([3, 5, 7, 9]) == 945:
     print('测试成功!')
 else:
     print('测试失败!')
-    
-#利用map和reduce编写一个str2float函数，把字符串'123.456'转换成浮点数123.456：
+
+
+# 利用map和reduce编写一个str2float函数，把字符串'123.456'转换成浮点数123.456：
 def str2float(s):
     n = s.find('.')
     print(n)
     n = len(s) - n - 1
     print(n)
     a = reduce(lambda x, y: 10 * x + y, map(int, s.replace('.', '')))
-    return float(a)/ pow(10, n)
+    return float(a) / pow(10, n)
+
 
 test = str2float('23659.3')
 print(test)
